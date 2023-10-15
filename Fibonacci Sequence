@@ -1,0 +1,30 @@
+#Fibonacci Sequence
+def generate_fibonacci_sequence(n):
+   
+    fibonacci_sequence = []
+
+    if n <= 0:
+        return fibonacci_sequence
+
+    a, b = 0, 1
+    fibonacci_sequence.append(a)
+
+    while len(fibonacci_sequence) < n:
+        a, b = b, a + b
+        fibonacci_sequence.append(a)
+    
+    return fibonacci_sequence
+
+try:
+    n = int(input("Enter the number of Fibonacci terms to generate: "))
+    if n < 0:
+        print("Please enter a non-negative integer.")
+    else:
+        result = generate_fibonacci_sequence(n)
+        if result:
+            print("Fibonacci sequence:")
+            print(result)
+        else:
+            print("No terms to generate for n <= 0.")
+except ValueError:
+    print("Please enter a valid integer.")
